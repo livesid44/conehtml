@@ -271,7 +271,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="call-row" data-call-id="12453">
+                <tr class="call-row" data-call-id="12453" data-flag="⚑ Fee Adjustment">
                   <td><input type="checkbox" /></td>
                   <td><strong>#12453</strong></td>
                   <td>2026-01-22 10:30</td>
@@ -332,7 +332,7 @@
                     </button>
                   </td>
                 </tr>
-                <tr class="call-row flagged" data-call-id="12450">
+                <tr class="call-row flagged" data-call-id="12450" data-flag="⚑ Compliance Issue">
                   <td><input type="checkbox" /></td>
                   <td><strong>#12450</strong></td>
                   <td>2026-01-22 09:30</td>
@@ -524,6 +524,38 @@
               text-align: center;
             }
           </style>
+          <!-- Compliance Quality Check Panel -->
+          <div id="evalCompliancePanel" style="background:#f0f4ff;border-radius:8px;padding:14px 16px;margin-bottom:16px;border-left:4px solid #0e5ac3;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+              <h3 style="margin:0;font-size:0.95rem;color:#0e5ac3;font-weight:700;">Compliance Quality Check</h3>
+              <div style="display:flex;gap:10px;align-items:center;">
+                <span class="sentiment-badge positive" id="evalSentiment">Positive</span>
+                <span class="status-badge warning" id="evalFlag">⚑ Fee Adjustment</span>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;font-size:12px;">
+              <div style="background:white;padding:10px;border-radius:6px;border:1px solid #d0e4ff;">
+                <div style="font-weight:700;color:#0e5ac3;margin-bottom:4px;">GLBA – Authentication</div>
+                <span style="color:#27ae60;font-weight:600;">✓ Passed</span>
+                <div style="color:#666;margin-top:3px;">Caller authenticated before account access</div>
+              </div>
+              <div style="background:white;padding:10px;border-radius:6px;border:1px solid #d0e4ff;">
+                <div style="font-weight:700;color:#0e5ac3;margin-bottom:4px;">PCI DSS – Data Handling</div>
+                <span style="color:#27ae60;font-weight:600;">✓ Passed</span>
+                <div style="color:#666;margin-top:3px;">No card/SSN data captured in notes or recording</div>
+              </div>
+              <div style="background:white;padding:10px;border-radius:6px;border:1px solid #d0e4ff;">
+                <div style="font-weight:700;color:#0e5ac3;margin-bottom:4px;">UDAAP – Fee Disclosure</div>
+                <span style="color:#27ae60;font-weight:600;">✓ Passed</span>
+                <div style="color:#666;margin-top:3px;">Approved language used; no misrepresentation</div>
+              </div>
+              <div style="background:#fffbf0;padding:10px;border-radius:6px;border:1px solid #f0ad4e;">
+                <div style="font-weight:700;color:#c0762a;margin-bottom:4px;">Reg Z – Billing Adjustment</div>
+                <span style="color:#e67e22;font-weight:600;">⚑ Flagged – Review Required</span>
+                <div style="color:#666;margin-top:3px;">$55 goodwill credit – supervisor approval pending</div>
+              </div>
+            </div>
+          </div>
           <div
             class="evaluation-form-container"
             style="max-height: 600px; overflow-y: auto"
@@ -997,161 +1029,263 @@
               </div>
               <div class="info-item">
                 <strong>Sentiment:</strong>
-                <span id="modalSentiment" class="sentiment-badge positive"
-                  >Positive</span
-                >
+                <span id="modalSentiment" class="sentiment-badge positive">Positive</span>
+              </div>
+              <div class="info-item">
+                <strong>Flag:</strong>
+                <span id="modalFlag" class="status-badge warning">⚑ Fee Adjustment</span>
               </div>
             </div>
           </div>
 
-          <div class="transcript-content">
-            <div class="transcript-line agent">
-              <div class="speaker">
-                <span class="speaker-badge agent">Agent</span>
-                <span class="timestamp">00:00</span>
+          <!-- Modal Tab Navigation -->
+          <div style="display:flex;border-bottom:2px solid #e0e0e0;margin:16px 0 0 0;">
+            <button class="modal-tab-btn active" data-modal-tab="tab-transcript"
+              style="background:none;border:none;border-bottom:3px solid #0e5ac3;padding:10px 22px;cursor:pointer;font-weight:600;font-size:14px;color:#0e5ac3;margin-bottom:-2px;">
+              Transcript
+            </button>
+            <button class="modal-tab-btn" data-modal-tab="tab-compliance"
+              style="background:none;border:none;border-bottom:3px solid transparent;padding:10px 22px;cursor:pointer;font-weight:600;font-size:14px;color:#7f8c8d;margin-bottom:-2px;">
+              Compliance Quality Check
+            </button>
+          </div>
+
+          <!-- TRANSCRIPT TAB -->
+          <div id="tab-transcript" class="modal-tab-pane" style="display:block;">
+            <div class="transcript-content">
+              <div class="transcript-line agent">
+                <div class="speaker">
+                  <span class="speaker-badge agent">Agent</span>
+                  <span class="timestamp">00:00</span>
+                </div>
+                <div class="message">
+                  Thank you for calling Credit One Bank customer support. My name is Sarah. How can I assist you today?
+                </div>
+                <div class="ai-analysis">
+                  <span class="analysis-tag positive">✓ Professional greeting</span>
+                  <span class="analysis-tag positive">✓ Brand introduction</span>
+                </div>
               </div>
-              <div class="message">
-                Good morning, thank you for calling Customer Support. My name is
-                Sarah, how may I help you today?
+
+              <div class="transcript-line customer">
+                <div class="speaker">
+                  <span class="speaker-badge customer">Customer</span>
+                  <span class="timestamp">00:14</span>
+                </div>
+                <div class="message">
+                  Hi Sarah, I'm calling because I noticed some late fees and interest charges on my credit card bill. I had some financial difficulties last month, and I was hoping we could work something out.
+                </div>
+                <div class="sentiment-indicator">
+                  <span class="emotion-tag">😟 Concerned</span>
+                </div>
               </div>
-              <div class="ai-analysis">
-                <span class="analysis-tag positive"
-                  >✓ Professional greeting</span
-                >
-                <span class="analysis-tag positive">✓ Clear introduction</span>
+
+              <div class="transcript-line agent">
+                <div class="speaker">
+                  <span class="speaker-badge agent">Agent</span>
+                  <span class="timestamp">00:35</span>
+                </div>
+                <div class="message">
+                  I understand, and I'll do my best to help. Let me pull up your account… Okay, I see the late fee of $35 and interest charges of $42. Can you tell me a bit more about what happened?
+                </div>
+                <div class="ai-analysis">
+                  <span class="analysis-tag positive">✓ Empathy shown</span>
+                  <span class="analysis-tag positive">✓ Account lookup performed</span>
+                </div>
+              </div>
+
+              <div class="transcript-line customer">
+                <div class="speaker">
+                  <span class="speaker-badge customer">Customer</span>
+                  <span class="timestamp">01:02</span>
+                </div>
+                <div class="message">
+                  I missed the payment deadline because my paycheck was delayed. I've been a customer for over three years, and I usually pay on time. I was wondering if you could waive the late fee or reduce the charges.
+                </div>
+                <div class="sentiment-indicator">
+                  <span class="emotion-tag">😔 Apologetic</span>
+                  <span class="analysis-tag" style="background:#fff3cd;color:#856404;">⚑ Fee waiver request</span>
+                </div>
+              </div>
+
+              <div class="transcript-line agent">
+                <div class="speaker">
+                  <span class="speaker-badge agent">Agent</span>
+                  <span class="timestamp">01:30</span>
+                </div>
+                <div class="message">
+                  Thank you for explaining. Since you have a good payment history, we may be able to make a one‑time courtesy adjustment. I can request to waive the $35 late fee. As for the interest, those are harder to remove, but I can check if we can offer a partial credit.
+                </div>
+                <div class="ai-analysis">
+                  <span class="analysis-tag positive">✓ Payment history acknowledged</span>
+                  <span class="analysis-tag positive">✓ Policy-compliant offer</span>
+                </div>
+              </div>
+
+              <div class="transcript-line customer">
+                <div class="speaker">
+                  <span class="speaker-badge customer">Customer</span>
+                  <span class="timestamp">02:00</span>
+                </div>
+                <div class="message">
+                  That would really help. If you could waive the late fee and maybe reduce the interest, I'd appreciate it.
+                </div>
+                <div class="sentiment-indicator">
+                  <span class="emotion-tag">🙂 Hopeful</span>
+                </div>
+              </div>
+
+              <div class="transcript-line agent">
+                <div class="speaker">
+                  <span class="speaker-badge agent">Agent</span>
+                  <span class="timestamp">02:15</span>
+                </div>
+                <div class="message">
+                  Here's what I can do: I'll submit a request to waive the late fee entirely. For the interest, I can apply a $20 goodwill credit to your account. That would reduce your balance by $55 total. Would that work for you?
+                </div>
+                <div class="ai-analysis">
+                  <span class="analysis-tag positive">✓ Clear resolution offered</span>
+                  <span class="analysis-tag positive">✓ Specific amounts stated</span>
+                  <span class="analysis-tag" style="background:#fff3cd;color:#856404;">⚑ $55 credit – review required</span>
+                </div>
+              </div>
+
+              <div class="transcript-line customer">
+                <div class="speaker">
+                  <span class="speaker-badge customer">Customer</span>
+                  <span class="timestamp">02:40</span>
+                </div>
+                <div class="message">
+                  Yes, that sounds fair. Thank you for helping me out.
+                </div>
+                <div class="sentiment-indicator">
+                  <span class="emotion-tag">😊 Satisfied</span>
+                </div>
+              </div>
+
+              <div class="transcript-line agent">
+                <div class="speaker">
+                  <span class="speaker-badge agent">Agent</span>
+                  <span class="timestamp">02:48</span>
+                </div>
+                <div class="message">
+                  You're welcome. I'll process the adjustment right now, and you'll see the credit reflected in your account within 1–2 business days. Going forward, setting up automatic payments might help avoid late fees. Would you like me to guide you through that?
+                </div>
+                <div class="ai-analysis">
+                  <span class="analysis-tag positive">✓ Clear timeline given</span>
+                  <span class="analysis-tag positive">✓ Proactive advice on auto-pay</span>
+                </div>
+              </div>
+
+              <div class="transcript-line customer">
+                <div class="speaker">
+                  <span class="speaker-badge customer">Customer</span>
+                  <span class="timestamp">03:10</span>
+                </div>
+                <div class="message">Yes, please. That would be great.</div>
+                <div class="sentiment-indicator">
+                  <span class="emotion-tag">😊 Satisfied</span>
+                </div>
+              </div>
+
+              <div class="transcript-line agent">
+                <div class="speaker">
+                  <span class="speaker-badge agent">Agent</span>
+                  <span class="timestamp">03:14</span>
+                </div>
+                <div class="message">Perfect. I'll walk you through the steps…</div>
+                <div class="ai-analysis">
+                  <span class="analysis-tag positive">✓ Proactive guidance offered</span>
+                </div>
               </div>
             </div>
 
-            <div class="transcript-line customer">
-              <div class="speaker">
-                <span class="speaker-badge customer">Customer</span>
-                <span class="timestamp">00:08</span>
-              </div>
-              <div class="message">
-                Hi Sarah, I'm having trouble with my recent order. It hasn't
-                arrived yet and it's been a week.
-              </div>
-              <div class="sentiment-indicator">
-                <span class="emotion-tag">😐 Neutral</span>
-              </div>
-            </div>
-
-            <div class="transcript-line agent">
-              <div class="speaker">
-                <span class="speaker-badge agent">Agent</span>
-                <span class="timestamp">00:18</span>
-              </div>
-              <div class="message">
-                I completely understand your concern, and I apologize for the
-                delay. Let me look into that for you right away. May I have your
-                order number, please?
-              </div>
-              <div class="ai-analysis">
-                <span class="analysis-tag positive">✓ Empathy shown</span>
-                <span class="analysis-tag positive"
-                  >✓ Proactive assistance</span
-                >
-              </div>
-            </div>
-
-            <div class="transcript-line customer">
-              <div class="speaker">
-                <span class="speaker-badge customer">Customer</span>
-                <span class="timestamp">00:30</span>
-              </div>
-              <div class="message">Yes, it's ORD-123456.</div>
-            </div>
-
-            <div class="transcript-line agent">
-              <div class="speaker">
-                <span class="speaker-badge agent">Agent</span>
-                <span class="timestamp">00:35</span>
-              </div>
-              <div class="message">
-                Thank you. Let me pull up your order... I can see your order was
-                shipped on the 15th and is currently in transit. According to
-                the tracking information, it should arrive by tomorrow. I'll
-                send you the tracking link via email right now so you can
-                monitor it yourself.
-              </div>
-              <div class="ai-analysis">
-                <span class="analysis-tag positive"
-                  >✓ Clear information provided</span
-                >
-                <span class="analysis-tag positive">✓ Proactive follow-up</span>
-              </div>
-            </div>
-
-            <div class="transcript-line customer">
-              <div class="speaker">
-                <span class="speaker-badge customer">Customer</span>
-                <span class="timestamp">00:55</span>
-              </div>
-              <div class="message">
-                Oh wonderful! That's great to hear. Thank you so much for
-                checking that for me.
-              </div>
-              <div class="sentiment-indicator">
-                <span class="emotion-tag">😊 Happy</span>
-              </div>
-            </div>
-
-            <div class="transcript-line agent">
-              <div class="speaker">
-                <span class="speaker-badge agent">Agent</span>
-                <span class="timestamp">01:02</span>
-              </div>
-              <div class="message">
-                You're very welcome! Is there anything else I can help you with
-                today?
-              </div>
-              <div class="ai-analysis">
-                <span class="analysis-tag positive"
-                  >✓ Offered additional help</span
-                >
-              </div>
-            </div>
-
-            <div class="transcript-line customer">
-              <div class="speaker">
-                <span class="speaker-badge customer">Customer</span>
-                <span class="timestamp">01:08</span>
-              </div>
-              <div class="message">No, that's all. Thank you!</div>
-            </div>
-
-            <div class="transcript-line agent">
-              <div class="speaker">
-                <span class="speaker-badge agent">Agent</span>
-                <span class="timestamp">01:12</span>
-              </div>
-              <div class="message">
-                Perfect! Thank you for calling, and have a great day!
-              </div>
-              <div class="ai-analysis">
-                <span class="analysis-tag positive"
-                  >✓ Professional closing</span
-                >
+            <div class="transcript-summary">
+              <h4>AI Analysis Summary</h4>
+              <div class="summary-grid">
+                <div class="summary-item">
+                  <strong>Strengths:</strong>
+                  <ul>
+                    <li>Empathy and professional tone throughout</li>
+                    <li>Acknowledged 3-year customer relationship</li>
+                    <li>Clear resolution with specific amounts ($55 credit)</li>
+                    <li>Proactive guidance on auto-pay setup</li>
+                  </ul>
+                </div>
+                <div class="summary-item">
+                  <strong>Flags / Areas for Review:</strong>
+                  <ul>
+                    <li>Financial adjustment ($55) requires supervisor review</li>
+                    <li>Goodwill credit applied — verify policy limits</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="transcript-summary">
-            <h4>AI Analysis Summary</h4>
-            <div class="summary-grid">
-              <div class="summary-item">
-                <strong>Strengths:</strong>
-                <ul>
-                  <li>Excellent empathy and professional tone throughout</li>
-                  <li>Quick problem resolution</li>
-                  <li>Proactive in providing tracking information</li>
-                </ul>
+          <!-- COMPLIANCE QUALITY CHECK TAB -->
+          <div id="tab-compliance" class="modal-tab-pane" style="display:none;">
+            <div style="padding:16px 0;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+                <h3 style="margin:0;font-size:1rem;color:#2c3e50;">Compliance Quality Check</h3>
+                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+                  <span class="sentiment-badge positive">😊 Positive Sentiment</span>
+                  <span class="status-badge warning">⚑ Fee Adjustment Flagged</span>
+                </div>
               </div>
-              <div class="summary-item">
-                <strong>Areas for Improvement:</strong>
-                <ul>
-                  <li>Could have offered compensation for the delay</li>
-                </ul>
+              <!-- Sentiment Arc -->
+              <div style="background:#f8f9fa;border-radius:8px;padding:14px;margin-bottom:16px;font-size:13px;">
+                <div style="font-weight:700;color:#2c3e50;margin-bottom:8px;">Customer Sentiment Arc</div>
+                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                  <span style="background:#ffeeba;color:#856404;padding:4px 10px;border-radius:12px;font-size:12px;">😟 Concerned</span>
+                  <span style="color:#aaa;">→</span>
+                  <span style="background:#ffeeba;color:#856404;padding:4px 10px;border-radius:12px;font-size:12px;">😔 Apologetic</span>
+                  <span style="color:#aaa;">→</span>
+                  <span style="background:#ffeeba;color:#856404;padding:4px 10px;border-radius:12px;font-size:12px;">🙂 Hopeful</span>
+                  <span style="color:#aaa;">→</span>
+                  <span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:12px;font-size:12px;">😊 Satisfied</span>
+                </div>
+              </div>
+              <!-- Compliance Checks -->
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;font-size:13px;">
+                <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid #d0e4ff;box-shadow:0 1px 4px rgba(0,0,0,.06);">
+                  <div style="font-weight:700;color:#0e5ac3;margin-bottom:6px;">GLBA – Privacy &amp; Authentication</div>
+                  <div style="color:#27ae60;font-weight:600;margin-bottom:4px;">✓ Passed</div>
+                  <div style="color:#555;font-size:12px;line-height:1.4;">Caller authenticated before any account information was disclosed. Minimum necessary data shared.</div>
+                </div>
+                <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid #d0e4ff;box-shadow:0 1px 4px rgba(0,0,0,.06);">
+                  <div style="font-weight:700;color:#0e5ac3;margin-bottom:6px;">PCI DSS – Card Data Handling</div>
+                  <div style="color:#27ae60;font-weight:600;margin-bottom:4px;">✓ Passed</div>
+                  <div style="color:#555;font-size:12px;line-height:1.4;">No CVV, SSN or card number mentioned or captured in notes or recording.</div>
+                </div>
+                <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid #d0e4ff;box-shadow:0 1px 4px rgba(0,0,0,.06);">
+                  <div style="font-weight:700;color:#0e5ac3;margin-bottom:6px;">UDAAP – Fee Disclosure</div>
+                  <div style="color:#27ae60;font-weight:600;margin-bottom:4px;">✓ Passed</div>
+                  <div style="color:#555;font-size:12px;line-height:1.4;">Approved language used. No misrepresentation of fees, APR or outcomes detected.</div>
+                </div>
+                <div style="background:#fffbf0;border-radius:8px;padding:14px;border:1px solid #f0ad4e;box-shadow:0 1px 4px rgba(0,0,0,.06);">
+                  <div style="font-weight:700;color:#c0762a;margin-bottom:6px;">Reg Z – Billing Adjustment</div>
+                  <div style="color:#e67e22;font-weight:600;margin-bottom:4px;">⚑ Flagged – Supervisor Review</div>
+                  <div style="color:#555;font-size:12px;line-height:1.4;">$55 goodwill credit applied ($35 fee waiver + $20 interest credit). Exceeds standard threshold — supervisor approval pending.</div>
+                </div>
+                <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid #d0e4ff;box-shadow:0 1px 4px rgba(0,0,0,.06);">
+                  <div style="font-weight:700;color:#0e5ac3;margin-bottom:6px;">FCBA – Dispute Process</div>
+                  <div style="color:#27ae60;font-weight:600;margin-bottom:4px;">✓ Passed</div>
+                  <div style="color:#555;font-size:12px;line-height:1.4;">No billing error dispute triggered; courtesy adjustment handled under goodwill policy.</div>
+                </div>
+                <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid #d0e4ff;box-shadow:0 1px 4px rgba(0,0,0,.06);">
+                  <div style="font-weight:700;color:#0e5ac3;margin-bottom:6px;">GLBA Safeguards – Secure Channels</div>
+                  <div style="color:#27ae60;font-weight:600;margin-bottom:4px;">✓ Passed</div>
+                  <div style="color:#555;font-size:12px;line-height:1.4;">Agent directed customer to secure auto-pay setup. No sensitive data shared over insecure channels.</div>
+                </div>
+              </div>
+              <!-- Overall Rating -->
+              <div style="margin-top:16px;background:#f0f4ff;border-radius:8px;padding:14px;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-weight:700;color:#2c3e50;margin-bottom:4px;">Overall Compliance Rating</div>
+                  <div style="font-size:12px;color:#555;">5 of 6 checks passed &middot; 1 flagged for review</div>
+                </div>
+                <div style="font-size:1.8rem;font-weight:800;color:#0e5ac3;">83%</div>
               </div>
             </div>
           </div>
@@ -1174,10 +1308,60 @@
         hamburger.classList.toggle("active");
       }
 
+      // Modal tab switching (scoped to the transcript modal)
+      function switchModalTab(btn, tabId) {
+        var modal = btn.closest(".modal");
+        if (!modal) return;
+        modal.querySelectorAll(".modal-tab-btn").forEach(function (b) {
+          b.style.color = "#7f8c8d";
+          b.style.borderBottom = "3px solid transparent";
+        });
+        modal.querySelectorAll(".modal-tab-pane").forEach(function (p) {
+          p.style.display = "none";
+        });
+        btn.style.color = "#0e5ac3";
+        btn.style.borderBottom = "3px solid #0e5ac3";
+        const pane = document.getElementById(tabId);
+        if (pane) pane.style.display = "block";
+      }
+
+      // Wire modal tab buttons (onclick already set inline; also support keyboard)
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".modal-tab-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            switchModalTab(this, this.getAttribute("data-modal-tab"));
+          });
+        });
+      });
+
       // Evaluation Modal Functions
       function openEvaluationModal(callId) {
         const modal = document.getElementById("evaluationModal");
         document.getElementById("evalCallId").textContent = "#" + callId;
+
+        // Update compliance panel sentiment and flag from the call row
+        var row = document.querySelector('.call-row[data-call-id="' + callId + '"]');
+        if (row) {
+          var sentimentBadge = row.querySelector(".sentiment-badge");
+          var flagText = row.getAttribute("data-flag") || "—";
+          var evalSentiment = document.getElementById("evalSentiment");
+          var evalFlag = document.getElementById("evalFlag");
+          if (evalSentiment && sentimentBadge) {
+            evalSentiment.textContent = sentimentBadge.textContent;
+            evalSentiment.className = sentimentBadge.className;
+          }
+          if (evalFlag) {
+            if (flagText && flagText !== "—") {
+              evalFlag.textContent = flagText;
+              evalFlag.className = "status-badge warning";
+              evalFlag.style.display = "";
+            } else {
+              evalFlag.textContent = "No Flag";
+              evalFlag.className = "status-badge success";
+            }
+          }
+        }
+
         modal.style.display = "flex";
 
         // Randomly check one checkbox for each of the 16 questions
@@ -1212,6 +1396,42 @@
               closeEvaluationModal();
             }
           });
+
+        // Update modalFlag when a transcript is opened
+        document.querySelectorAll(".view-transcript").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var row = this.closest("tr");
+            var flagElem = document.getElementById("modalFlag");
+            if (row && flagElem) {
+              var flagText = row.getAttribute("data-flag") || "—";
+              if (flagText && flagText !== "—") {
+                flagElem.textContent = flagText;
+                flagElem.className = "status-badge warning";
+              } else {
+                flagElem.textContent = "No Flag";
+                flagElem.className = "status-badge success";
+              }
+            }
+            // Reset transcript modal tabs to the Transcript tab
+            var transcriptModal = document.getElementById("transcriptModal");
+            if (transcriptModal) {
+              transcriptModal.querySelectorAll(".modal-tab-btn").forEach(function (b) {
+                b.style.color = "#7f8c8d";
+                b.style.borderBottom = "3px solid transparent";
+              });
+              transcriptModal.querySelectorAll(".modal-tab-pane").forEach(function (p) {
+                p.style.display = "none";
+              });
+              var firstBtn = transcriptModal.querySelector(".modal-tab-btn");
+              var firstPane = document.getElementById("tab-transcript");
+              if (firstBtn) {
+                firstBtn.style.color = "#0e5ac3";
+                firstBtn.style.borderBottom = "3px solid #0e5ac3";
+              }
+              if (firstPane) firstPane.style.display = "block";
+            }
+          });
+        });
       });
     </script>
   </body>
