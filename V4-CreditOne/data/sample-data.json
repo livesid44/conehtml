@@ -1,0 +1,159 @@
+{
+  "platform": {
+    "name": "Quality Automation - AI Analytics Platform",
+    "version": "1.0.0",
+    "description": "Agentic AI-based quality automation system"
+  },
+  "dashboards": {
+    "overview": {
+      "avgQualityScore": 86.1,
+      "callsAnalyzed": 50,
+      "positiveSentiment": 68.0,
+      "trainingNeeds": 15
+    },
+    "scoreDistribution": {
+      "90-100": 44,
+      "80-89": 32,
+      "70-79": 20,
+      "60-69": 4,
+      "below60": 0
+    },
+    "topPerformers": [
+      {"name": "Sarah Johnson", "score": 94.2},
+      {"name": "Emily Davis", "score": 90.8},
+      {"name": "Jennifer Lee", "score": 89.6},
+      {"name": "Lisa Anderson", "score": 89.2},
+      {"name": "Robert Martinez", "score": 88.8}
+    ]
+  },
+  "sentiment": {
+    "overall": {
+      "positive": 76.3,
+      "neutral": 18.2,
+      "negative": 5.5
+    },
+    "emotions": {
+      "happy": 42,
+      "satisfied": 34,
+      "neutral": 18,
+      "frustrated": 4,
+      "angry": 2
+    }
+  },
+  "calls": [
+    {"id":"12453","agent":"Sarah Johnson","customer":"John Smith","date":"2026-01-22 10:30","duration":"8m 32s","qualityScore":96,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12452","agent":"Mike Chen","customer":"Jane Doe","date":"2026-01-22 10:15","duration":"12m 18s","qualityScore":94,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12451","agent":"Emily Davis","customer":"Robert Brown","date":"2026-01-22 09:45","duration":"6m 54s","qualityScore":82,"sentiment":"Neutral","status":"Pending"},
+    {"id":"12450","agent":"James Wilson","customer":"Mary Johnson","date":"2026-01-22 09:30","duration":"15m 42s","qualityScore":78,"sentiment":"Negative","status":"Flagged"},
+    {"id":"12449","agent":"Lisa Anderson","customer":"David Wilson","date":"2026-01-22 09:00","duration":"9m 23s","qualityScore":98,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12448","agent":"Sarah Johnson","customer":"Emma Taylor","date":"2026-01-22 08:45","duration":"7m 15s","qualityScore":91,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12447","agent":"Robert Martinez","customer":"Michael Anderson","date":"2026-01-22 08:30","duration":"11m 04s","qualityScore":88,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12446","agent":"Jennifer Lee","customer":"Patricia Thomas","date":"2026-01-22 08:15","duration":"5m 47s","qualityScore":95,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12445","agent":"David Thompson","customer":"Christopher Jackson","date":"2026-01-22 08:00","duration":"13m 22s","qualityScore":73,"sentiment":"Neutral","status":"Pending"},
+    {"id":"12444","agent":"Amanda Garcia","customer":"Linda White","date":"2026-01-21 17:45","duration":"8m 55s","qualityScore":90,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12443","agent":"Kevin Patel","customer":"Barbara Harris","date":"2026-01-21 17:30","duration":"10m 12s","qualityScore":85,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12442","agent":"Sarah Johnson","customer":"William Martin","date":"2026-01-21 17:15","duration":"6m 38s","qualityScore":97,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12441","agent":"Mike Chen","customer":"Elizabeth Garcia","date":"2026-01-21 17:00","duration":"14m 05s","qualityScore":71,"sentiment":"Negative","status":"Flagged"},
+    {"id":"12440","agent":"Emily Davis","customer":"Charles Rodriguez","date":"2026-01-21 16:45","duration":"9m 33s","qualityScore":92,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12439","agent":"James Wilson","customer":"Susan Lewis","date":"2026-01-21 16:30","duration":"7m 19s","qualityScore":86,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12438","agent":"Lisa Anderson","customer":"Joseph Lee","date":"2026-01-21 16:15","duration":"11m 48s","qualityScore":79,"sentiment":"Neutral","status":"Pending"},
+    {"id":"12437","agent":"Robert Martinez","customer":"Margaret Walker","date":"2026-01-21 16:00","duration":"8m 27s","qualityScore":93,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12436","agent":"Jennifer Lee","customer":"Daniel Hall","date":"2026-01-21 15:45","duration":"5m 33s","qualityScore":97,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12435","agent":"David Thompson","customer":"Maria Allen","date":"2026-01-21 15:30","duration":"16m 14s","qualityScore":65,"sentiment":"Negative","status":"Flagged"},
+    {"id":"12434","agent":"Amanda Garcia","customer":"Nancy Young","date":"2026-01-21 15:15","duration":"8m 42s","qualityScore":88,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12433","agent":"Kevin Patel","customer":"Ronald Hernandez","date":"2026-01-21 15:00","duration":"9m 57s","qualityScore":84,"sentiment":"Neutral","status":"Pending"},
+    {"id":"12432","agent":"Sarah Johnson","customer":"Paul King","date":"2026-01-21 14:45","duration":"7m 08s","qualityScore":95,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12431","agent":"Mike Chen","customer":"Betty Wright","date":"2026-01-21 14:30","duration":"12m 33s","qualityScore":81,"sentiment":"Neutral","status":"Reviewed"},
+    {"id":"12430","agent":"Emily Davis","customer":"George Scott","date":"2026-01-21 14:15","duration":"6m 21s","qualityScore":93,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12429","agent":"James Wilson","customer":"Dorothy Torres","date":"2026-01-21 14:00","duration":"18m 47s","qualityScore":69,"sentiment":"Negative","status":"Flagged"},
+    {"id":"12428","agent":"Lisa Anderson","customer":"Kenneth Nguyen","date":"2026-01-21 13:45","duration":"9m 14s","qualityScore":90,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12427","agent":"Robert Martinez","customer":"Sandra Hill","date":"2026-01-21 13:30","duration":"8m 52s","qualityScore":87,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12426","agent":"Jennifer Lee","customer":"Christopher Adams","date":"2026-01-21 13:15","duration":"11m 35s","qualityScore":76,"sentiment":"Neutral","status":"Pending"},
+    {"id":"12425","agent":"David Thompson","customer":"Helen Baker","date":"2026-01-21 13:00","duration":"7m 43s","qualityScore":91,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12424","agent":"Amanda Garcia","customer":"Frank Nelson","date":"2026-01-21 12:45","duration":"10m 27s","qualityScore":83,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12423","agent":"Kevin Patel","customer":"Patricia Carter","date":"2026-01-21 12:30","duration":"5m 58s","qualityScore":96,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12422","agent":"Sarah Johnson","customer":"Donald Mitchell","date":"2026-01-21 12:15","duration":"9m 17s","qualityScore":89,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12421","agent":"Mike Chen","customer":"Jessica Perez","date":"2026-01-21 12:00","duration":"13m 44s","qualityScore":74,"sentiment":"Neutral","status":"Pending"},
+    {"id":"12420","agent":"Emily Davis","customer":"Thomas Roberts","date":"2026-01-21 11:45","duration":"7m 29s","qualityScore":94,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12419","agent":"James Wilson","customer":"Angela Turner","date":"2026-01-21 11:30","duration":"15m 03s","qualityScore":70,"sentiment":"Negative","status":"Flagged"},
+    {"id":"12418","agent":"Lisa Anderson","customer":"Mark Phillips","date":"2026-01-21 11:15","duration":"8m 36s","qualityScore":88,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12417","agent":"Robert Martinez","customer":"Donna Campbell","date":"2026-01-21 11:00","duration":"6m 14s","qualityScore":92,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12416","agent":"Jennifer Lee","customer":"Matthew Parker","date":"2026-01-21 10:45","duration":"11m 22s","qualityScore":85,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12415","agent":"David Thompson","customer":"Pamela Evans","date":"2026-01-21 10:30","duration":"9m 08s","qualityScore":78,"sentiment":"Neutral","status":"Pending"},
+    {"id":"12414","agent":"Amanda Garcia","customer":"Raymond Edwards","date":"2026-01-21 10:15","duration":"7m 51s","qualityScore":90,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12413","agent":"Kevin Patel","customer":"Rebecca Collins","date":"2026-01-21 10:00","duration":"10m 40s","qualityScore":86,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12412","agent":"Sarah Johnson","customer":"Samuel Stewart","date":"2026-01-21 09:45","duration":"5m 26s","qualityScore":97,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12411","agent":"Mike Chen","customer":"Sharon Sanchez","date":"2026-01-21 09:30","duration":"12m 15s","qualityScore":82,"sentiment":"Neutral","status":"Reviewed"},
+    {"id":"12410","agent":"Emily Davis","customer":"Gary Morris","date":"2026-01-21 09:15","duration":"8m 03s","qualityScore":93,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12409","agent":"James Wilson","customer":"Deborah Rogers","date":"2026-01-21 09:00","duration":"14m 39s","qualityScore":77,"sentiment":"Neutral","status":"Pending"},
+    {"id":"12408","agent":"Lisa Anderson","customer":"Nathan Reed","date":"2026-01-21 08:45","duration":"6m 52s","qualityScore":91,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12407","agent":"Robert Martinez","customer":"Joyce Cook","date":"2026-01-21 08:30","duration":"9m 28s","qualityScore":84,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12406","agent":"Jennifer Lee","customer":"Larry Morgan","date":"2026-01-21 08:15","duration":"7m 14s","qualityScore":95,"sentiment":"Positive","status":"Reviewed"},
+    {"id":"12405","agent":"David Thompson","customer":"Amy Bell","date":"2026-01-21 08:00","duration":"11m 47s","qualityScore":72,"sentiment":"Negative","status":"Flagged"},
+    {"id":"12404","agent":"Amanda Garcia","customer":"Joshua Murphy","date":"2026-01-21 07:45","duration":"8m 33s","qualityScore":87,"sentiment":"Positive","status":"Reviewed"}
+  ],
+  "trainingNeeds": [
+    {
+      "parameter": "Call Opening & Greeting",
+      "avgScore": 68,
+      "threshold": 85,
+      "gap": -17,
+      "affectedAgents": 23,
+      "priority": "High"
+    },
+    {
+      "parameter": "Product Knowledge",
+      "avgScore": 74,
+      "threshold": 90,
+      "gap": -16,
+      "affectedAgents": 18,
+      "priority": "High"
+    },
+    {
+      "parameter": "Objection Handling",
+      "avgScore": 79,
+      "threshold": 85,
+      "gap": -6,
+      "affectedAgents": 15,
+      "priority": "Medium"
+    }
+  ],
+  "actionPlans": [
+    {
+      "name": "Call Opening Excellence",
+      "parameter": "Call Opening & Greeting",
+      "enrolledAgents": 23,
+      "duration": "2 weeks",
+      "progress": 35,
+      "status": "In Progress"
+    },
+    {
+      "name": "Product Knowledge Enhancement",
+      "parameter": "Product Knowledge",
+      "enrolledAgents": 18,
+      "duration": "3 weeks",
+      "startDate": "2026-01-25",
+      "status": "Scheduled"
+    }
+  ],
+  "configuration": {
+    "sync": {
+      "enabled": true,
+      "frequency": "Daily",
+      "time": "02:00",
+      "lastSync": "2026-01-22 02:00"
+    },
+    "dataSources": [
+      {"name": "Call Recording System", "status": "Connected", "enabled": true},
+      {"name": "CRM Platform", "status": "Connected", "enabled": true},
+      {"name": "Workforce Management", "status": "Disconnected", "enabled": false}
+    ],
+    "ai": {
+      "autoTranscribe": true,
+      "sentimentAnalysis": true,
+      "emotionalAnalysis": true,
+      "autoScore": true,
+      "confidenceThreshold": 85
+    }
+  }
+}
